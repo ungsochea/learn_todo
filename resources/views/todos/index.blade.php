@@ -13,7 +13,7 @@
                 <div>
                     @include('todos.complete_button')
                 </div>
-                <p class="px-2 {{ $todo->completed ? 'line-through':''}}">{{ $todo->title }}</p>
+                <a href="{{ route('todos.show',$todo->id)}} " class="px-2 {{ $todo->completed ? 'line-through':''}} cursor-pointer">{{ $todo->title }}</a>
                 <div>
                     <a href="{{ route('todos.edit',$todo->id)}}" class="text-orange-400 cursor-pointer text-white">
                         <span class="fas fa-edit px-2" />
