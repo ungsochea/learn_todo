@@ -8,7 +8,7 @@
     </div>
     <x-alert />
     <ul class="my-5">
-        @foreach ($todos as $todo)
+        @forelse ($todos as $todo)
             <li class="flex justify-between py-2">
                 <div>
                     @include('todos.complete_button')
@@ -26,7 +26,9 @@
                 </div>
                 {{--  <a href="{{ route('todos.destroy',$todo->id)}}" class="mx-0 p-2 bg-red-400 cursor-pointer rounded text-white">Delete</a>  --}}
             </li>
-        @endforeach
+        @empty
+            <p>No task available , create one.</p>
+        @endforelse
     </ul>
 
 @endsection
