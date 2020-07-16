@@ -2,11 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/todos','TodoController@index');
-Route::get('/todos/create','TodoController@create');
-Route::post('/todos/create','TodoController@store');
-Route::get('/todos/{todo}/edit','TodoController@edit');
-Route::patch('/todos/{todo}/update','TodoController@update');
+Route::put('todos/{todo}/complete','TodoController@complete')->name('todos.complete');
+Route::put('todos/{todo}/incomplete','TodoController@incomplete')->name('todos.incomplete');
+Route::resource('todos','TodoController');
 
 Route::get('/', function () {
     return view('welcome');
